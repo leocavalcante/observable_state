@@ -2,7 +2,9 @@ abstract class Observable<P> {
   static Map<Type, List<Observable>> _observables = {};
 
   static void notifyMutation<P>(Type mutationType, P state) {
-    _observables[mutationType].forEach((o) => o.notify(state));
+    if (_observables[mutationType] != null) {
+      _observables[mutationType].forEach((o) => o.notify(state));
+    }
   }
 
   List<Type> get observing => [];
