@@ -1,18 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:observable_state_example/my_state.dart';
+import 'package:observable_state_example/state.dart';
 
-class MyHomePage extends StatefulWidget {
+class HomePage extends StatefulWidget {
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _HomePageState createState() => _HomePageState();
 }
 
-class _MyHomePageState extends MyState<MyHomePage> {
+class _HomePageState extends MyState<HomePage> {
   @override
   List<Type> get observing => [Increment];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Observable state #${state.counter}'),
+      ),
       body: Center(child: Text('Counter: ${state.counter}')),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
