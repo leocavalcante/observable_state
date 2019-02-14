@@ -1,7 +1,6 @@
 library observable_state;
 
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
-}
+export 'src/mutation.dart';
+export 'src/observable_provider.dart';
+export 'src/observable_state.dart';
+export 'src/observable.dart';
