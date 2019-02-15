@@ -1,14 +1,14 @@
-import 'package:flutter/widgets.dart';
+part of observable_state;
 
-class ObservableProvider<T> extends InheritedWidget {
-  ObservableProvider({
+class ObservableProvider<S> extends InheritedWidget {
+  ObservableProvider(
+    this.state, {
     Key key,
     @required this.child,
-    @required this.state,
   }) : super(key: key, child: child);
 
+  final S state;
   final Widget child;
-  final T state;
 
   static _targetType<T>() => T;
   static ObservableProvider<T> of<T>(BuildContext context) => context

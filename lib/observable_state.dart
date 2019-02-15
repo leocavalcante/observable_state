@@ -1,6 +1,8 @@
 library observable_state;
 
-export 'src/mutation.dart';
-export 'src/observable_provider.dart';
-export 'src/observable_state.dart';
-export 'src/observable.dart';
+import 'package:flutter/widgets.dart';
+
+part 'src/observable_model.dart';
+part 'src/observable_provider.dart';
+part 'src/observable_state.dart';
+part 'src/observer.dart';

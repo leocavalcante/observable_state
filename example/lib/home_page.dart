@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:observable_state/observable_state.dart';
 import 'package:observable_state_example/state.dart';
 
 class HomePage extends StatefulWidget {
@@ -6,9 +7,9 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends MyState<HomePage> {
+class _HomePageState extends ObservableState<HomePage, MyState, Changes> {
   @override
-  List<Type> get observing => [Increment];
+  List<Changes> get changes => [Changes.increment];
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +21,7 @@ class _HomePageState extends MyState<HomePage> {
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         onPressed: () {
-          mutate(Increment());
+          state.increment();
         },
       ),
     );

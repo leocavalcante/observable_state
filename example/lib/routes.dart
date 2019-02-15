@@ -1,1 +1,1 @@
-const homePage = '/';
+const kRouteHomePage = '/';
