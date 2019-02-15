@@ -9,7 +9,10 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends ObservableState<HomePage, MyState, Changes> {
   @override
-  List<Changes> get changes => [Changes.increment];
+  List<Changes> get changes => [
+        Changes.increment,
+        Changes.doneAsyncIncrement,
+      ];
 
   @override
   Widget build(BuildContext context) {
@@ -18,10 +21,32 @@ class _HomePageState extends ObservableState<HomePage, MyState, Changes> {
         title: Text('Observable state #${state.counter}'),
       ),
       body: Center(child: Text('Counter: ${state.counter}')),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
-        onPressed: () {
-          state.increment();
+      floatingActionButton: Builder(
+        builder: (context) {
+          return FloatingActionButton(
+            child: Icon(Icons.add),
+            onPressed: () async {
+              Scaffold.of(context).showSnackBar(
+                SnackBar(
+                  content: Row(
+                    children: <Widget>[
+                      CircularProgressIndicator(),
+                      Expanded(
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                          child: Text('Incrementing'),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              );
+
+              await state.asyncIncrement();
+
+              Scaffold.of(context).hideCurrentSnackBar();
+            },
+          );
         },
       ),
     );
