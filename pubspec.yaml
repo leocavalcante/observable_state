@@ -1,5 +1,5 @@
 name: observable_state
-description: "Observable State: Yet Another Flutter's State Manager."
+description: "Yet Another Flutter State Manager for a Reactive Application Architecture"
 version: 0.0.1
 author: leocavalcante <lc@leocavalcante.com>
 homepage: https://github.com/leocavalcante/observable_state

@@ -1,5 +1,5 @@
-# 🔭 Observable State
-Yet Another Flutter's State Manager.
+# 🔭 Observable state
+Yet Another Flutter State Manager for a Reactive Application Architecture.
 
 ## But this time
 - State mutations are handled by OO Encapsulation Principle on Plain-old objects.
@@ -11,5 +11,5 @@ Yet Another Flutter's State Manager.
 
 ## How it works
 It's a sweet, sweet sugar on top of the battle-tested **Observer pattern.** Your State is stored in a List of Observables in a given Subject (Change) and it's `setState()` is called only when your Model explicity tells to notify about that Change.
-- It is not BLoC, but you still can maitain, test and visualize your Business Logic away from the UI.
-- It is not Flux *(Redux/Rx/Stream)*, but you still can control data in an unidirectional flow.
+- **It is not BLoC**, but you still can maitain, test and visualize your Business Logic away from the UI.
+- **It is not Flux** *(Redux/Rx/Stream)*, but you still can control data in an unidirectional flow.
