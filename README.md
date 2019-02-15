@@ -35,7 +35,7 @@ class MyState {
 ```
 From a simple model like that, to add **observable_state** super-powers you just need to:
 ```dart
-class MyState extends ObservableModel<MyState, Changes> {
+class MyState extends Observable<MyState, Changes> {
   int counter;
 }
 ```
@@ -51,7 +51,7 @@ enum Changes {
   increment,
 }
 
-class MyState extends ObservableModel<MyState, Changes> {
+class MyState extends Observable<MyState, Changes> {
   int _counter;
   int get counter => _counter;
 
@@ -68,7 +68,7 @@ enum Changes {
   increment,
 }
 
-class MyState extends ObservableModel<MyState, Changes> {
+class MyState extends Observable<MyState, Changes> {
   int _counter;
   int get counter => _counter;
 
@@ -77,13 +77,13 @@ class MyState extends ObservableModel<MyState, Changes> {
   }
 }
 ```
-That is it. Your `ObservableModel` is notifying about State changes.
+That is it. Your `Observable` is notifying about `MyState` Changes.
 
 ### How to listen to then?
 
-**Here comes the `ObservableState`**.
+**Here comes the `StateObserver`**.
 
-Remember: `StatelessWiget`s are state-less as the name suggests. We are not going to mess with them adding Streams or whatever. Actually, even the `StatefulWidget` remains the same. We are going to **super-power** the `State`!
+Remember: `StatelessWidget`s are state-less as the name suggests. We are not going to mess with them adding Streams or whatever. Actually, even the `StatefulWidget` remains the same. We are going to **super-power** the `State`!
 
 ```dart
 class MyStatefulWidget extends StatefulWidget {
@@ -91,9 +91,9 @@ class MyStatefulWidget extends StatefulWidget {
   _MyStatefulWidgetState createState() => _MyStatefulWidgetState();
 }
 
-class _MyStatefulWidgetState extends ObservableState<MyStatefulWidget, MyState, Changes> {
+class _MyStatefulWidgetState extends StateObserver<MyStatefulWidget, MyState, Changes> {
   @override
-  List<Changes> get changes => [Changes.increment];
+  List<Changes> get subjects => [Changes.increment];
 
   @override
   Widget build(BuildContext context) {
@@ -115,9 +115,9 @@ class _MyStatefulWidgetState extends ObservableState<MyStatefulWidget, MyState, 
 }
 ```
 
-Notice that we are extending `ObservableState` instead of `State` and we are given a list of Changes we are interest in, like `Changes.increment`.
-`ObservableState` already got the `state` so we can get `counter` and we can call `increment()` on it as well.
-Wherever `increment()` is called, since it notifies about `Changes.increment`, whoever `Observable` is observing this change, it will automatically calls its inner `setState()` method, then rebuilding it.
+Notice that we are extending `StateObserver` instead of `State` and we are given a list of Changes we are interest in, like `Changes.increment`.
+`StateObserver` already got the `state` so we can get `counter` and we can call `increment()` on it as well.
+Wherever `increment()` is called, since it notifies about `Changes.increment`, whoever `StateObserver` is observing this change, it will automatically calls its inner `setState()` method, then rebuilding it.
 
 ### Where does the `state` comes from?
 

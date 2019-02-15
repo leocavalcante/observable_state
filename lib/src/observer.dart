@@ -33,7 +33,7 @@ class _Observatory<S, C> {
 }
 
 abstract class Observer<S, C> {
-  List<C> get changes => [];
+  List<C> get subjects => [];
 
   void observe(C change) {
     _Observatory.getInstance<S, C>().observe(change, this);
