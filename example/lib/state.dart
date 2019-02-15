@@ -13,13 +13,15 @@ class Properties {
   bool _loading;
 }
 
-class MyState extends ObservableModel<MyState, Changes> with Properties {
+class MyState extends Observable<MyState, Changes> with Properties {
   int get counter => _counter;
   bool get loading => _loading;
 
   Future initState() {
     return Future.delayed(
-        const Duration(seconds: 5), () => setState(() => _counter = 42));
+      const Duration(seconds: 5),
+      () => setState(() => _counter = 42),
+    );
   }
 
   void increment() {

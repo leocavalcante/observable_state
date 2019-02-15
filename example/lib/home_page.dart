@@ -7,9 +7,9 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends ObservableState<HomePage, MyState, Changes> {
+class _HomePageState extends StateObserver<HomePage, MyState, Changes> {
   @override
-  List<Changes> get changes => [
+  List<Changes> get subjects => [
         Changes.increment,
         Changes.doneAsyncIncrement,
       ];
