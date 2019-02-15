@@ -10,8 +10,8 @@ Yet Another Flutter State Manager for a Reactive Application Architecture.
 - No Streams or new Widgets, it is purely `State` and `setState()`, like Vanilla, but :zap: **Reactive!**
 
 ## How it works
-It's a sweet, sweet sugar on top of the battle-tested **Observer pattern.** Your State is stored in a List of Observables in a given Subject (Change) and it's `setState()` is called only when your Model explicity tells to notify about that Change.
-- **It is not BLoC**, but you still can maitain, test and visualize your Business Logic away from the UI.
+It's a sweet, sweet sugar on top of the battle-tested **Observer pattern.** Your State is stored in a List of Observables in a given Subject (Change) and it's `setState()` is called only when your Model explicit tells to notify about that Change.
+- **It is not BLoC**, but you still can maintain, test and visualize your Business Logic away from the UI.
 - **It is not Flux** *(Redux/Rx/Stream)*, but you still can control data in an unidirectional flow.
 
 ## Usage guide (Get started)
@@ -117,7 +117,7 @@ class _MyStatefulWidgetState extends ObservableState<MyStatefulWidget, MyState, 
 
 Notice that we are extending `ObservableState` instead of `State` and we are given a list of Changes we are interest in, like `Changes.increment`.
 `ObservableState` already got the `state` so we can get `counter` and we can call `increment()` on it as well.
-Wherever `increment()` is called, since it notfies about `Changes.increment`, whoever `Observable` is observing this change, it will automatically calls its inner `setState()` method, then rebuilding it.
+Wherever `increment()` is called, since it notifies about `Changes.increment`, whoever `Observable` is observing this change, it will automatically calls its inner `setState()` method, then rebuilding it.
 
 ### Where does the `state` comes from?
 
