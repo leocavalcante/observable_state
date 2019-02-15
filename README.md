@@ -1,11 +1,11 @@
-# 🔭 Observable state ![https://pub.dartlang.org/packages/observable_state](https://img.shields.io/pub/v/observable_state.svg?style=flat-square)
-Yet Another Flutter State Manager for a Reactive Application Architecture.
+# Observable state ![https://pub.dartlang.org/packages/observable_state](https://img.shields.io/pub/v/observable_state.svg?style=flat-square)
+🔭 Yet Another Flutter State Manager for a Reactive Application Architecture.
 
 ## But this time
-- State mutations are handled by OO Encapsulation Principle on Plain-old objects.
-- You can freely Unit Test your State and its Mutations, like pure Dart (because **it is** pure Dart).
-- Keep track of every State Change using an Enum, simple like that.
-- Notify only the specific States that are Observing the triggered Change, **NOT** the entire Widget tree.
+- State mutations are handled by the [OO Encapsulation Principle](https://martinfowler.com/bliki/TellDontAsk.html) on Plain-old objects.
+- You can freely Unit Test your State and its Mutations, like pure Dart (because **IT IS** pure Dart).
+- Keep track of every State change using an Enum, simple like that.
+- Notify only the specific States that are Observing the triggered change, **NOT** the entire Widget tree.
 - Actually, *observable_state* does not mess with Widgets, it's all about the State. Stateless are kept Stateless.
 - No Streams or new Widgets, it is purely `State` and `setState()`, like Vanilla, but :zap: **Reactive!**
 
