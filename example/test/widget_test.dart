@@ -15,8 +15,10 @@ void main() {
     expect(find.text('Counter: 42'), findsOneWidget);
 
     await tester.tap(find.byIcon(Icons.add));
-    await tester.pumpAndSettle();
+    await tester.pump();
+    expect(find.text('Incrementing'), findsOneWidget);
 
+    await tester.pumpAndSettle();
     expect(find.text('Counter: 43'), findsOneWidget);
   });
 }
