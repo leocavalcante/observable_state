@@ -1,47 +1,47 @@
 part of observable_state;
 
-class _Observers<S, C> {
-  static _Observers _instance;
+class _Observatory<S, C> {
+  static _Observatory _instance;
 
-  static _Observers<S, C> getInstance<S, C>() {
+  static _Observatory<S, C> getInstance<S, C>() {
     if (_instance == null) {
-      _instance = _Observers<S, C>();
+      _instance = _Observatory<S, C>();
     }
 
     return _instance;
   }
 
   void observe(C change, Observer<S, C> observable) {
-    if (getInstance<S, C>().observables[change] == null) {
-      getInstance<S, C>().observables[change] = <Observer<S, C>>[];
+    if (getInstance<S, C>()._subject[change] == null) {
+      getInstance<S, C>()._subject[change] = <Observer<S, C>>[];
     }
 
-    getInstance<S, C>().observables[change].add(observable);
+    getInstance<S, C>()._subject[change].add(observable);
   }
 
   void notify(C change) {
     if (change != null) {
-      getInstance<S, C>().observables[change]?.forEach((o) => o.notify());
+      getInstance<S, C>()._subject[change]?.forEach((o) => o.notify());
     }
   }
 
   void unobserve(C change, Observer<S, C> observable) {
-    getInstance<S, C>().observables[change]?.remove(observable);
+    getInstance<S, C>()._subject[change]?.remove(observable);
   }
 
-  final Map<C, List<Observer<S, C>>> observables = {};
+  final Map<C, List<Observer<S, C>>> _subject = {};
 }
 
 abstract class Observer<S, C> {
   List<C> get changes => [];
 
   void observe(C change) {
-    _Observers.getInstance<S, C>().observe(change, this);
+    _Observatory.getInstance<S, C>().observe(change, this);
   }
 
   void notify();
 
   void unobserve(C change) {
-    _Observers.getInstance<S, C>().unobserve(change, this);
+    _Observatory.getInstance<S, C>().unobserve(change, this);
   }
 }
