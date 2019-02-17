@@ -1,0 +1,1 @@
+const routeNameHome = '/home';
