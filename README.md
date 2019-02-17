@@ -1,4 +1,4 @@
-# Observable state ![https://pub.dartlang.org/packages/observable_state](https://img.shields.io/pub/v/observable_state.svg?style=flat-square)
+# Observable state [![Pub](https://img.shields.io/pub/v/observable_state.svg)](https://pub.dartlang.org/packages/observable_state)
 🔭 Yet Another Flutter State Manager for a Reactive Application Architecture.
 
 ## But this time
