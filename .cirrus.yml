@@ -4,4 +4,5 @@ container:
 test_task:
   pub_cache:
     folder: ~/.pub-cache
+  install_script: pub get
   test_script: pub run test
