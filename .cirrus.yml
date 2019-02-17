@@ -1,0 +1,9 @@
+container:
+  image: cirrusci/flutter:latest
+
+helloworld_task:
+  pub_cache:
+    folder: ~/.pub-cache
+  cd_script: cd example/helloworld
+  install_script: pub get
+  test_script: flutter test
