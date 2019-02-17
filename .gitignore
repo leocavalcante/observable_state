@@ -1,11 +1,9 @@
 .dart_tool/
 .DS_Store
-.metadata
 .packages
 .pub/
 .vscode/
 *.iml
 /android
 /ios
-/pubspec.lock
 build/
