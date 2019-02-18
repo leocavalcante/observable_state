@@ -10,6 +10,8 @@ dependencies:
     sdk: flutter
   observable_state:
     path: ../
+  google_sign_in: 3.3.0+1
+  firebase_auth: 0.7.0
 
 dev_dependencies:
   flutter_test:

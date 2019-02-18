@@ -1,5 +1,6 @@
 import 'package:example/app_state.dart';
 import 'package:example/pages/home_page.dart';
+import 'package:example/pages/login_page.dart';
 import 'package:example/routes.dart';
 import 'package:example/widgets/splash_screen.dart';
 import 'package:flutter/material.dart';
@@ -17,6 +18,10 @@ class _AppState extends StateObserver<App, AppState, Changes> {
       title: 'Observable State Example',
       theme: ThemeData(
         primarySwatch: Colors.pink,
+        buttonTheme: ButtonThemeData(
+          buttonColor: Colors.pink,
+          textTheme: ButtonTextTheme.primary,
+        ),
       ),
       onGenerateRoute: (settings) {
         if (settings.isInitialRoute) {
@@ -26,6 +31,12 @@ class _AppState extends StateObserver<App, AppState, Changes> {
             });
 
             return SplashScreen();
+          });
+        }
+
+        if (settings.name == routeNameLogin) {
+          return new MaterialPageRoute(builder: (context) {
+            return LoginPage();
           });
         }
 
