@@ -1,4 +1,5 @@
 import 'package:example/app_state.dart';
+import 'package:example/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:observable_state/observable_state.dart';
 
@@ -41,6 +42,8 @@ class _LoginPageState extends StateObserver<LoginPage, AppState, Changes> {
         _error = 'Invalid email or password';
       });
     }
+
+    Navigator.of(context).pushReplacementNamed(routeNameHome);
   }
 
   @override

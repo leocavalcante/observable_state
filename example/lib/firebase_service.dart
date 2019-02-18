@@ -40,4 +40,9 @@ class FirebaseService implements Service {
 
     return User(uid: firebaseUser.uid);
   }
+
+  @override
+  Future<void> logout() {
+    return firebaseAuth.signOut();
+  }
 }

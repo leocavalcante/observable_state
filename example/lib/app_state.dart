@@ -14,8 +14,8 @@ class User {
   })  : _uid = uid,
         _email = email;
 
-  int _uid;
-  int get uid => _uid;
+  String _uid;
+  String get uid => _uid;
 
   String _email;
   String get email => _email;
@@ -50,5 +50,9 @@ class AppState extends Observable<AppState, Changes> {
 
   Future<User> login(String email, String password) {
     return service.login(email, password);
+  }
+
+  Future<void> logout() {
+    return service.logout();
   }
 }
