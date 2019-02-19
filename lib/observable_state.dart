@@ -1,4 +1,4 @@
-/// A library for State Management with a Centralized and Predictable container.
+/// Flutter's State Manager for Reactive Apps in a Centralized and Predictable container.
 library observable_state;
 
 import 'package:flutter/widgets.dart';
