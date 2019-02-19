@@ -8,7 +8,7 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends StateObserver<HomePage, AppState, Changes> {
+class _HomePageState extends StateObserver<HomePage, MyState, Changes> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
