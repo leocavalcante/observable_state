@@ -140,7 +140,7 @@ It's an InheritedWidget responsible to instantiate your initial State and handle
 
 **That is it! You're ready to Rock! 🎸**
 
-`ObservableModel` has no dependency at all with any Flutter APIs, so you can Unit test your Model using Plain-old `test` package. And you can test your Widgets using a Mock or a real state without any hassle.
+`Observable` has no dependency at all with any Flutter APIs, so you can Unit test your Model using Plain-old `test` package. And you can test your Widgets using a Mock or a real state without any hassle.
 
 Check out the [example directory](example) for a complete example with Asyncs, Services and Dependency Injection.
 
