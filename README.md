@@ -3,19 +3,17 @@
 🔭 Yet Another Flutter State Manager for a Reactive Application Architecture.
 
 ## But this time
-- State mutations are handled by the [OO Encapsulation Principle](https://martinfowler.com/bliki/TellDontAsk.html) on Plain-old objects.
-- You can freely Unit Test your State and its Mutations, like pure Dart (because **IT IS** pure Dart).
-- Keep track of every State change using an Enum, simple like that.
-- Notify only the specific States that are Observing the triggered change, **NOT** the entire Widget tree.
-- Actually, *observable_state* does not mess with Widgets, it's all about the State. Stateless are kept Stateless.
-- No Streams or new Widgets, it is purely `State` and `setState()`, like Vanilla, but :zap: **Reactive!**
+- 🧰 State changes are handled using [encapsulation](https://martinfowler.com/bliki/TellDontAsk.html) on plain-old objects.
+- ✔️ You can freely test your state and its changes, like pure Dart; because **IT IS** pure Dart.
+- 🎯 Notify only the specific `State`s that are observing the triggered change, **NOT** the entire Widget tree.
+- 💧 No Streams or new Widgets, it is purely `State` and `setState()`; like Vanilla, but in a **Centralized** and **Predictable** state container.
 
 ## How it works
 It's a sweet, sweet sugar on top of the battle-tested **Observer pattern.** Your State is stored in a List of Observables in a given Subject (Change) and it's `setState()` is called only when your Model explicit tells to notify about that Change.
 - **It is not BLoC**, but you still can maintain, test and visualize your Business Logic away from the UI.
 - **It is not Flux** *(Redux/Rx/Stream)*, but you still can control data in an unidirectional flow.
 
-## Usage guide (Get started)
+## Get started
 The fact is: **state is hard!** Probably the hardest thing (after naming, of course). This is why things like BLoC, Flux/Redux and ScopedModel appears; to help you solve that.
 
 And that is why **observable_state** is here too.
@@ -144,7 +142,6 @@ It's an InheritedWidget responsible to instantiate your initial State and handle
 
 Check out the [example directory](example) for a complete example with Asyncs, Services and Dependency Injection.
 
-⚠️ For now, use with caution, API may change.
+*****
 
----
-&copy; 2019
+Feel free to, and I'd be glad if you, try it and leave some feedback. Just be aware that while on early stages, API may change.
