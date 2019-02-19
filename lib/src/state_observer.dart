@@ -1,13 +1,14 @@
 part of observable_state;
 
-abstract class StateObserver<T extends StatefulWidget, S, C> extends State<T>
-    with Observer<S, C> {
-  S get state => ObservableProvider.of<S>(context).state;
+abstract class StateObserver<T extends StatefulWidget, O extends Observable, C>
+    extends State<T> with Observer<C> {
+  List<C> get changes => [];
+  O get state => ObservableProvider.of<O>(context).state;
 
   @override
   void initState() {
     super.initState();
-    subjects.forEach(observe);
+    changes.forEach(observe);
   }
 
   @override
@@ -17,7 +18,7 @@ abstract class StateObserver<T extends StatefulWidget, S, C> extends State<T>
 
   @override
   void dispose() {
-    subjects.forEach(unobserve);
+    changes.forEach(unobserve);
     super.dispose();
   }
 }

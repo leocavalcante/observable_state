@@ -21,8 +21,8 @@ class User {
   String get email => _email;
 }
 
-class AppState extends Observable<AppState, Changes> {
-  AppState({@required this.service});
+class MyState extends Observable<Changes> {
+  MyState({@required this.service});
 
   final Service service;
 

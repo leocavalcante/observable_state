@@ -1,18 +1,21 @@
 part of observable_state;
 
-class ObservableProvider<S> extends InheritedWidget {
-  ObservableProvider(
-    this.state, {
+class ObservableProvider<O extends Observable> extends InheritedWidget {
+  ObservableProvider({
     Key key,
+    @required this.state,
     @required this.child,
   }) : super(key: key, child: child);
 
-  final S state;
+  final O state;
   final Widget child;
 
   static _targetType<T>() => T;
-  static ObservableProvider<T> of<T>(BuildContext context) => context
-      .inheritFromWidgetOfExactType(_targetType<ObservableProvider<T>>());
+
+  static ObservableProvider<O> of<O extends Observable>(BuildContext context) {
+    return context
+        .inheritFromWidgetOfExactType(_targetType<ObservableProvider<O>>());
+  }
 
   @override
   bool updateShouldNotify(InheritedWidget oldWidget) => false;

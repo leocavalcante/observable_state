@@ -6,8 +6,8 @@ enum Changes {
   increment,
 }
 
-class State extends Observable<State, Changes> {
-  State({int counter = 0}) : _counter = counter;
+class MyState extends Observable<Changes> {
+  MyState({int counter = 0}) : _counter = counter;
 
   int _counter;
   int get counter => _counter;
@@ -22,9 +22,9 @@ class TestWidget extends StatefulWidget {
   _TestWidgetState createState() => _TestWidgetState();
 }
 
-class _TestWidgetState extends StateObserver<TestWidget, State, Changes> {
+class _TestWidgetState extends StateObserver<TestWidget, MyState, Changes> {
   @override
-  List<Changes> get subjects => [Changes.increment];
+  List<Changes> get changes => [Changes.increment];
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +47,7 @@ class _TestWidgetState extends StateObserver<TestWidget, State, Changes> {
 void main() {
   testWidgets('Counter example', (tester) async {
     await tester.pumpWidget(ObservableProvider(
-      State(),
+      state: MyState(),
       child: TestWidget(),
     ));
 

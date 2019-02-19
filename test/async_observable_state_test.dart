@@ -7,7 +7,7 @@ enum Changes {
   doneIncrement,
 }
 
-class State extends Observable<State, Changes> {
+class MyState extends Observable<Changes> {
   int _counter = 0;
   int get counter => _counter;
 
@@ -34,11 +34,12 @@ class State extends Observable<State, Changes> {
   }
 }
 
-class TestWidget extends StatelessWidget {
-  const TestWidget({Key key, @required this.state}) : super(key: key);
+class TestWidget extends StatefulWidget {
+  @override
+  TestWidgetState createState() => TestWidgetState();
+}
 
-  final State state;
-
+class TestWidgetState extends StateObserver<TestWidget, MyState, Changes> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -66,9 +67,9 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends StateObserver<HomePage, State, Changes> {
+class _HomePageState extends StateObserver<HomePage, MyState, Changes> {
   @override
-  List<Changes> get subjects => [
+  List<Changes> get changes => [
         Changes.willIncrement,
         Changes.doneIncrement,
       ];
@@ -95,11 +96,11 @@ class _HomePageState extends StateObserver<HomePage, State, Changes> {
 }
 
 void main() {
-  final initialState = State();
-
   testWidgets('Async', (tester) async {
-    await tester.pumpWidget(ObservableProvider(initialState,
-        child: TestWidget(state: initialState)));
+    await tester.pumpWidget(ObservableProvider(
+      state: MyState(),
+      child: TestWidget(),
+    ));
 
     expect(find.byType(CircularProgressIndicator), findsOneWidget);
 
@@ -111,7 +112,7 @@ void main() {
     expect(find.byType(SnackBar), findsOneWidget);
     expect(find.text('Incrementing...'), findsOneWidget);
 
-    await tester.pumpAndSettle();
+    await tester.pumpAndSettle(const Duration(seconds: 2));
     expect(find.byType(SnackBar), findsNothing);
     expect(find.text('2'), findsOneWidget);
   });

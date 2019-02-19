@@ -7,10 +7,12 @@ import 'package:observable_state/observable_state.dart';
 
 void main() {
   final service = FirebaseService(firebaseAuth: FirebaseAuth.instance);
-  final initialState = AppState(service: service);
+  final initialState = MyState(service: service);
 
-  runApp(ObservableProvider(
-    initialState,
-    child: App(),
-  ));
+  runApp(
+    ObservableProvider(
+      state: initialState,
+      child: App(),
+    ),
+  );
 }

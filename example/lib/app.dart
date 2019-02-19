@@ -11,7 +11,7 @@ class App extends StatefulWidget {
   _AppState createState() => _AppState();
 }
 
-class _AppState extends StateObserver<App, AppState, Changes> {
+class _AppState extends StateObserver<App, MyState, Changes> {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(

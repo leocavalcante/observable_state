@@ -1,47 +1,35 @@
 part of observable_state;
 
-class _Observatory<S, C> {
-  static _Observatory _instance;
+final _observers = <dynamic, List<Observer>>{};
 
-  static _Observatory<S, C> getInstance<S, C>() {
-    if (_instance == null) {
-      _instance = _Observatory<S, C>();
-    }
-
-    return _instance;
+void _observe<C>(C change, Observer<C> observer) {
+  if (!_observers.containsKey(change)) {
+    _observers[change] = <Observer<C>>[];
   }
 
-  void observe(C change, Observer<S, C> observable) {
-    if (getInstance<S, C>()._subject[change] == null) {
-      getInstance<S, C>()._subject[change] = <Observer<S, C>>[];
-    }
-
-    getInstance<S, C>()._subject[change].add(observable);
-  }
-
-  void notify(C change) {
-    if (change != null) {
-      getInstance<S, C>()._subject[change]?.forEach((o) => o.notify());
-    }
-  }
-
-  void unobserve(C change, Observer<S, C> observable) {
-    getInstance<S, C>()._subject[change]?.remove(observable);
-  }
-
-  final Map<C, List<Observer<S, C>>> _subject = {};
+  _observers[change].add(observer);
 }
 
-abstract class Observer<S, C> {
-  List<C> get subjects => [];
+void _unobserve<C>(C change, Observer<C> observer) {
+  if (_observers.containsKey(change)) {
+    _observers[change].remove(observer);
+  }
+}
 
+void _notify<C>(C change) {
+  if (_observers.containsKey(change)) {
+    _observers[change].forEach((observer) => observer.notify());
+  }
+}
+
+abstract class Observer<C> {
   void observe(C change) {
-    _Observatory.getInstance<S, C>().observe(change, this);
+    _observe(change, this);
+  }
+
+  void unobserve(C change) {
+    _unobserve(change, this);
   }
 
   void notify();
-
-  void unobserve(C change) {
-    _Observatory.getInstance<S, C>().unobserve(change, this);
-  }
 }

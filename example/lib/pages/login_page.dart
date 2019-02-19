@@ -8,7 +8,7 @@ class LoginPage extends StatefulWidget {
   _LoginPageState createState() => _LoginPageState();
 }
 
-class _LoginPageState extends StateObserver<LoginPage, AppState, Changes> {
+class _LoginPageState extends StateObserver<LoginPage, MyState, Changes> {
   TextEditingController _email;
   TextEditingController _password;
   FocusNode _passwordFocus;
