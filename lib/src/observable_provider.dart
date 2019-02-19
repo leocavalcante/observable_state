@@ -1,5 +1,6 @@
 part of observable_state;
 
+/// The [InheritedWidget] that provides an [Observable] for the tree on its context.
 class ObservableProvider<O extends Observable> extends InheritedWidget {
   ObservableProvider({
     Key key,
@@ -7,6 +8,7 @@ class ObservableProvider<O extends Observable> extends InheritedWidget {
     @required this.child,
   }) : super(key: key, child: child);
 
+  /// The Observable State
   final O state;
   final Widget child;
 

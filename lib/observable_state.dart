@@ -1,3 +1,4 @@
+/// A library for State Management with a Centralized and Predictable container.
 library observable_state;
 
 import 'package:flutter/widgets.dart';
