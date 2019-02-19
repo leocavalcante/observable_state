@@ -14,7 +14,7 @@ class App extends StatefulWidget {
 class _AppState extends StateObserver<App, MyState, Changes> {
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
+    return MaterialApp(
       title: 'Observable State Example',
       theme: ThemeData(
         primarySwatch: Colors.pink,
@@ -25,7 +25,7 @@ class _AppState extends StateObserver<App, MyState, Changes> {
       ),
       onGenerateRoute: (settings) {
         if (settings.isInitialRoute) {
-          return new MaterialPageRoute(builder: (context) {
+          return MaterialPageRoute(builder: (context) {
             state.initState().then((_) {
               Navigator.of(context).pushReplacementNamed(state.initialRoute);
             });
@@ -35,7 +35,7 @@ class _AppState extends StateObserver<App, MyState, Changes> {
         }
 
         if (settings.name == routeNameLogin) {
-          return new MaterialPageRoute(builder: (context) {
+          return MaterialPageRoute(builder: (context) {
             return LoginPage();
           });
         }
