@@ -1,6 +1,6 @@
 # Observable state [![Pub](https://img.shields.io/pub/v/observable_state.svg)](https://pub.dartlang.org/packages/observable_state) [![Build Status](https://api.cirrus-ci.com/github/leocavalcante/observable_state.svg)](https://cirrus-ci.com/github/leocavalcante/observable_state)
 
-Yet Another Flutter State Manager for a Reactive Application Architecture.
+Flutter's State Manager for Reactive Apps in a Centralized and Predictable container.
 
 ## But this time
 
