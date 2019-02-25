@@ -7,7 +7,7 @@ Flutter's State Manager for Reactive Apps in a Centralized and Predictable conta
 - 🧰 State changes are handled using [encapsulation](https://martinfowler.com/bliki/TellDontAsk.html) on plain-old objects.
 - ✔️ You can freely test your state and its changes, like pure Dart; because **IT IS** pure Dart.
 - 🎯 Notify only the specific `State`s that are observing the triggered change, **NOT** the entire Widget tree.
-- 💧 No Streams or new Widgets, it is purely `State` and `setState()`; like Vanilla, but in a **Centralized** and **Predictable** state container.
+- 💧 No Streams or new Widgets, it is purely `State` and `setState()`; like Vanilla, but in a **Centralized** and **Predictable** state container. **Your Container!**
 
 ## How it works
 
