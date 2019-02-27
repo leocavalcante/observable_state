@@ -2,6 +2,8 @@
 
 Flutter's State Manager for Reactive Apps in a Centralized and Predictable container.
 
+#### [Using React? Check out!](https://github.com/leocavalcante/observable-state)
+
 ## But this time
 
 - 🧰 State changes are handled using [encapsulation](https://martinfowler.com/bliki/TellDontAsk.html) on plain-old objects.
