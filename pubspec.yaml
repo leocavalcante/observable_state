@@ -1,6 +1,6 @@
 name: observable_state
 description: "Flutter's State Manager for Reactive Apps in a Centralized and Predictable container."
-version: 0.1.0+2
+version: 0.2.0
 author: leocavalcante <lc@leocavalcante.com>
 homepage: https://github.com/leocavalcante/observable_state
 
