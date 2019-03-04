@@ -22,3 +22,7 @@ class ObservableProvider<O extends Observable> extends InheritedWidget {
   @override
   bool updateShouldNotify(InheritedWidget oldWidget) => false;
 }
+
+/// Sugar to get current state from the [ObservableProvider].
+S observableStateOf<S extends Observable>(BuildContext context) =>
+    ObservableProvider.of<S>(context).state;

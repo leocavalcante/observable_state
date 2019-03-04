@@ -1,14 +1,10 @@
 part of observable_state;
 
-/// A [WidgetBuilder] aware about the State.
-typedef Widget ObserverWidgetBuilder<S extends Observable<C>, C>(
-    BuildContext context, S state);
-
 /// A fine-grained control for [StateObserver].
 /// [ObserverBuilder] can be used for little pieces of your UI.
 class ObserverBuilder<S extends Observable<C>, C> extends StatefulWidget {
   final List<C> changes;
-  final ObserverWidgetBuilder<S, C> builder;
+  final ObservableWidgetBuilder<S> builder;
 
   const ObserverBuilder(
       {Key key, @required this.builder, this.changes = const []})
