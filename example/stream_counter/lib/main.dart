@@ -38,7 +38,7 @@ class MyHomePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text('You have pushed the button this many times:'),
-            StreamBuilder<Object>(
+            StreamBuilder<int>(
                 stream: observableStateOf<MyState>(context).counter,
                 builder: (context, snapshot) {
                   return Text(
