@@ -1,0 +1,16 @@
+name: observable_state_example
+description: "Flutter's State Manager for Reactive Apps in a Centralized and Predictable container."
+version: 1.0.0
+author: leocavalcante <lc@leocavalcante.com>
+homepage: https://github.com/leocavalcante/observable_state
+
+environment:
+  sdk: ">=2.0.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
