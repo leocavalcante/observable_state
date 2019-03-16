@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:firebase/routes.dart';
 import 'package:firebase/service.dart';
 import 'package:meta/meta.dart';
@@ -51,6 +53,6 @@ class MyState extends Observable<Changes> {
 
   Future<void> logout() {
     _user = null;
-    service.logout();
+    return service.logout();
   }
 }
