@@ -30,7 +30,7 @@ And that is why **observable_state** is here too.
 
 ```yaml
 dependencies:
-  observable_state: ^0.1.0
+  observable_state: ^0.2.0
 ```
 
 ### State modeling
