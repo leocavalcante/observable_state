@@ -1,3 +1,6 @@
+# Closed
+[Provider](https://pub.dev/packages/provider) + [ChangeNotifier](https://api.flutter.dev/flutter/foundation/ChangeNotifier-class.html) will do the same.
+
 # Observable state [![Pub](https://img.shields.io/pub/v/observable_state.svg)](https://pub.dartlang.org/packages/observable_state) [![Build Status](https://api.cirrus-ci.com/github/leocavalcante/observable_state.svg)](https://cirrus-ci.com/github/leocavalcante/observable_state)
 
 Flutter's State Manager for Reactive Apps in a Centralized and Predictable container.
